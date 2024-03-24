@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate_user
 
   def new
-    return redirect_to '' if session[:user_id].present?
+    return redirect_to events_path if session[:user_id].present?
 
     @user = User.new
   end
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   def create
     if user && user.authenticate(session_params[:password])
       session[:user_id] = user.id
-      redirect_to '' #events_path
+      redirect_to events_path
     else
       render :new
     end

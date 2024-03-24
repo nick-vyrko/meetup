@@ -1,0 +1,25 @@
+.container.mt-5
+  %h1.text-secondary.text-center
+    Create
+    %span.text-primary Meetup!
+
+  = simple_form_for @event, method: :post, defaults: { label_html: { class: 'text-start' } } do |form|
+    .row.mt-5
+      .col-6.offset-3
+        = form.input :name, placeholder: 'Name'
+
+    .row.mt-2
+      .col-6.offset-3
+        = form.input :datetime, placeholder: 'Date'
+
+    .row.mt-2
+      .col-6.offset-3
+        = form.input :description, placeholder: 'Description'
+
+    .row.mt-2
+      .col-6.offset-3
+        = form.input :total_tickets, placeholder: 'Available Tickets'
+
+    .row.mt-3
+      .col-6.offset-3
+        = form.submit 'Create Event', class: 'btn btn-primary btn-block w-100'

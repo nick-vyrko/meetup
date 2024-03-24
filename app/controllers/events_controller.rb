@@ -1,0 +1,31 @@
+# frozen_string_literal: true
+
+class EventsController < ApplicationController
+  def index
+    @events = Event.upcoming.to_a
+  end
+
+  def show
+    @event = Event.find(params[:id])
+  end
+
+  def new
+    @event = Event.new
+  end
+
+  def create
+    @event = Event.new(user: current_user, **event_params.merge(latitude: 1, longitude: 1))
+
+    if @event.save
+      redirect_to event_path(@event.id)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:name, :description, :datetime, :latitude, :longitude, :total_tickets)
+  end
+end

@@ -1,0 +1,14 @@
+.container.mt-5
+  %h1.text-secondary.text-center
+    = @event.name
+    %span.text-primary Meetup!
+
+  .text-center.my-3
+    %a.rounded.text-decoration-none{href: events_path} < Back to events
+
+  .row
+    .col-6.offset-3
+      %h4.text-secondary= @event.datetime.strftime("%a, %B %d %T")
+  .row.mt-2
+    .col-6.offset-3
+      %h4.text-secondary= @event.description
