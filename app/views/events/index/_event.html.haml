@@ -1,0 +1,11 @@
+%a.text-decoration-none{href: event_path(event)}
+  .row
+    .col-6.offset-3
+      %h3= event.name
+  .row
+    .col-6.offset-3
+      %h4.text-secondary= event.datetime.strftime("%a, %B %d %T")
+  .row
+    .col-6.offset-3
+      %h4.text-secondary= event.total_tickets
+  %hr.text-secondary.my-3

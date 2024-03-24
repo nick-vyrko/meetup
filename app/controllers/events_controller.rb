@@ -2,7 +2,9 @@
 
 class EventsController < ApplicationController
   def index
-    @events = Event.upcoming.to_a
+    @events = Rails.cache.fetch("upcoming_events", expires_in: 5.minutes) do
+      Event.upcoming.to_a
+    end
   end
 
   def show
