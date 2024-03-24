@@ -17,6 +17,7 @@ class EventsController < ApplicationController
     @event = Event.new(user: current_user, **event_params.merge(latitude: 1, longitude: 1))
 
     if @event.save
+      CreateTicketsJob.perform_async(@event.id, @event.total_tickets)
       redirect_to event_path(@event.id)
     else
       render :new
