@@ -12,3 +12,14 @@
   .row.mt-2
     .col-6.offset-3
       %h4.text-secondary= @event.description
+
+  .row
+    .col-12.offset-3
+      %turbo-frame#booking_result
+        = flash[:notice]
+
+  .row.my-5
+    .col-12.text-center
+      = simple_form_for(@event, url: event_bookings_path(@event.id), method: :post, html: { data: { 'turbo-frame'=> 'booking_result' } }) do |f|
+        = number_field_tag :tickets_count
+        = f.submit 'Book tickets', class: 'btn btn-primary'
