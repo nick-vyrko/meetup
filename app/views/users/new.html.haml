@@ -1,0 +1,23 @@
+.container.mt-5
+  %h1.text-secondary.text-center
+    Welcome to
+    %span.text-primary Meetup!
+
+  %h2.text-secondary.text-center.mt-5 Sign Up
+
+  = simple_form_for @user, url: sign_up_path, method: :post, defaults: { label_html: { class: 'text-start' } } do |form|
+    .row.mt-5
+      .col-6.offset-3
+        = form.input :name, placeholder: 'Name'
+
+    .row.mt-2
+      .col-6.offset-3
+        = form.input :email, placeholder: 'E-Mail'
+
+    .row.mt-2
+      .col-6.offset-3
+        = form.input :password, placeholder: 'Password'
+
+    .row.mt-3
+      .col-6.offset-3
+        = form.submit 'Create an account', class: 'btn btn-primary btn-block w-100'
