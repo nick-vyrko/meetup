@@ -46,13 +46,14 @@ Authentication is done via [ActiveModel::SecurePassword](https://api.rubyonrails
 ### Async jobs
 Asynchronous processing is done via [sidekiq](https://github.com/sidekiq/sidekiq) 
 
-Tickets for the newly created event are created in `CreateTicketsJob`
-Booked tickets counter is increased in `IncreaseBookedTicketsCounterJob`
-When an event has passed we destroy unbooked tickets in `CleanUpUnusedTicketsJob`
+- Tickets for the newly created event are created in `CreateTicketsJob`
+- Booked tickets counter is increased in `IncreaseBookedTicketsCounterJob`
+- When an event has passed we destroy unbooked tickets in `CleanUpUnusedTicketsJob`
 
 ## Database
 
 Entity Relationship Diagram:
+
 ![ERD](https://github.com/nick-vyrko/meetup/assets/1536587/96e78d00-3b85-4ab3-a372-10ee896accd9)
 
 ## Challenges
@@ -63,7 +64,6 @@ Whenever a user tries to book tickets they are locked until the transaction fini
 If we were able to get the requested amount of tickets then they are unlocked and unprocessable_entity response is returned
 
 ### Performance: 
-> Implement caching to improve the performance of the application. Use Rails' built-in caching mechanisms.
 
 To get better performance caching is used. 
 - We cache the events collection that is returned on `events#index` for 5 minutes. 
