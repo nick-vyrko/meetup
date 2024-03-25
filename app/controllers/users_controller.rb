@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  layout 'id'
   skip_before_action :authenticate_user
 
   def new
