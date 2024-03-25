@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Event tickets booking' do
+RSpec.describe 'Event tickets booking', type: :request do
   let(:user) { create(:user) }
 
   before do
