@@ -36,6 +36,17 @@ RSpec.describe 'Events managements', type: :request do
       expect(response).to redirect_to(event_path(Event.first))
       expect(Event.first).to have_attributes(user_id: user.id, name: 'test event', datetime: DateTime.parse(datetime), total_tickets: 3)
     end
+
+    context 'with invalid params' do
+      let(:params) { { event: { name: '', description: '', datetime: datetime, total_tickets: 3 } } }
+
+      it 'renders new event page' do
+        post '/events', params: params
+
+        expect(response.body).to include('Name', 'Date', 'Description', 'Available Tickets', 'Create Event')
+        expect(Event.count).to eq(0)
+      end
+    end
   end
 
   describe 'GET /events/new' do

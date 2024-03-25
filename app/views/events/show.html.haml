@@ -17,7 +17,7 @@
       %h4= "#{@tickets_left}/#{@event.total_tickets}"
 
   .row
-    .col-12.offset-3
+    .col-6.offset-3
       %turbo-frame#booking_result
         - if flash[:notice].present?
           .alert.alert-success

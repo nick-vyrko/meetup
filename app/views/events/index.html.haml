@@ -3,7 +3,13 @@
   %h1.text-secondary.text-center.mb-5
     %span.text-primary Meetups!
 
-  - @events.each do |event|
-    - tickets_left = @tickets_left[event.id]
-    - cache [event, tickets_left]  do
-      = render partial: 'events/index/event', locals: { event: event, tickets_left: tickets_left }
+  .row
+    .col-6.offset-3
+      = link_to 'New Event', new_event_path, class: 'btn btn-primary btn-block w-100'
+
+  .row.mt-5
+    .col-12
+      - @events.each do |event|
+        - tickets_left = @tickets_left[event.id]
+        - cache [event, tickets_left]  do
+          = render partial: 'events/index/event', locals: { event: event, tickets_left: tickets_left }
