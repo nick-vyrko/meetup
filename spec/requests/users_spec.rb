@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users management', type: :request do
-  describe 'GET sign-up/' do
+  describe 'GET /sign-up' do
     it 'show registration page' do
       get '/sign-up'
 
@@ -11,7 +11,7 @@ RSpec.describe 'Users management', type: :request do
     end
   end
 
-  describe 'POST sign-up/' do
+  describe 'POST /sign-up' do
     let(:params) { { user: { name: 'Agent', email: 'agent.smith@mail.ru', password: '123123' } } }
 
     it 'creates user' do

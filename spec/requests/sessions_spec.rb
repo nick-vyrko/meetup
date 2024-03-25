@@ -10,7 +10,7 @@ RSpec.describe 'Sessions management', type: :request do
     end
   end
 
-  describe 'POST sign-in/' do
+  describe 'POST /sign-in' do
     let(:params) { { user: { email: email, password: password } } }
     let(:email) { "testmail@mail.com" }
     let(:password) { '123123' }
@@ -35,7 +35,7 @@ RSpec.describe 'Sessions management', type: :request do
     end
   end
 
-  describe 'DELETE sign-out/' do
+  describe 'DELETE /sign-out' do
     let(:params) { { user: { email: user.email, password: user.password } } }
     let(:user) { create(:user) }
 

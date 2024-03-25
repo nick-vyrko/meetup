@@ -5,7 +5,7 @@ FactoryBot.define do
     user
     sequence(:name) { |n| "event_#{n}" }
     description { 'description text' }
-    datetime { Time.current }
+    datetime { Time.current.tomorrow }
     latitude { 1 }
     longitude { 1 }
     total_tickets { 10 }
