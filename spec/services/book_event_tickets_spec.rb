@@ -4,7 +4,7 @@ require 'sidekiq/testing'
 require 'rails_helper'
 
 RSpec.describe BookEventTickets do
-  subject { described_class.new(user:, event:, tickets_count:).call }
+  subject { described_class.new(user: user, event: event, tickets_count: tickets_count).call }
 
   let(:user) { create(:user) }
   let(:event) { create(:event) }

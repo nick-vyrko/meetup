@@ -31,6 +31,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rubocop-rails', '~> 2.24', '>= 2.24.1'
+  gem 'rubocop-rspec', '~> 2.27', '>= 2.27.1'
   gem "web-console"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]

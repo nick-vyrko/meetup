@@ -21,7 +21,7 @@ class RedisProxy
 
   attr_reader :connection_pool
 
-  def method_missing(name, *args, &block)
+  def method_missing(name, *args, &block) # rubocop:disable Style/MissingRespondToMissing
     connection_pool.with do |redis|
       redis.send(name, *args, &block)
     end

@@ -8,6 +8,6 @@ class CreateTicketsJob
       { event_id: event_id }
     end
 
-    Ticket.insert_all(data)
+    Ticket.insert_all(data) # rubocop:disable Rails/SkipsModelValidations
   end
 end

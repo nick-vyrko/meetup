@@ -1,0 +1,27 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - "vendor/**/*"
+    - "**/tmp/**/*"
+    - "**/db/schema.rb"
+    - "**/bin/**/*"
+    - "config/**/*"
+    - "spec/spec_helper.rb"
+    - "spec/rails_helper.rb"
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+Style/Documentation:
+  Enabled: false
+RSpec/HookArgument:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 4
+RSpec/NamedSubject:
+  Enabled: false
+RSpec/MessageSpies:
+  Enabled: false

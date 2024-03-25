@@ -21,10 +21,14 @@ RSpec.describe BookedTicketsCounter do
   end
 
   describe '.count' do
-    it 'returns length of the list' do
-      expect(redis).to receive(:llen).with(list_key).and_return(1)
+    before do
+      allow(redis).to receive(:llen).and_return(1)
+    end
 
+    it 'returns length of the list' do
       expect(subject.count).to eq(1)
+
+      expect(redis).to have_received(:llen).with(list_key)
     end
   end
 end
