@@ -16,5 +16,9 @@ FactoryBot.define do
         Ticket.insert_all(tickets_data)
       end
     end
+
+    trait :past do
+      datetime { Time.current.yesterday }
+    end
   end
 end
