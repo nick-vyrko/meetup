@@ -15,7 +15,9 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to events_path
     else
-      render :new
+      render partial: 'sessions/new/alert_response',
+             locals: { message: 'Email or password is not correct' },
+             status: :unprocessable_entity
     end
   end
 

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'sign-up' => 'users#new'
   post 'sign-up' => 'users#create'
   post 'sign-in' => 'sessions#create'
-  get 'sign-out' => 'sessions#destroy'
+  delete 'sign-out' => 'sessions#destroy'
 
   # Defines the root path route ("/")
   root "sessions#new"

@@ -19,7 +19,9 @@
   .row
     .col-12.offset-3
       %turbo-frame#booking_result
-        = flash[:notice]
+        - if flash[:notice].present?
+          .alert.alert-success
+            = flash[:notice]
 
   .row.my-5
     .col-12.text-center

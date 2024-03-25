@@ -6,7 +6,11 @@
   %h2.text-secondary.text-center.mt-5 Sign In
 
 
-  = simple_form_for @user, url: sign_in_path, method: :post, defaults: { label_html: { class: 'text-start' } } do |form|
+  = simple_form_for @user, url: sign_in_path, method: :post, defaults: { label_html: { class: 'text-start' } }, html: { data: { 'turbo-frame'=> 'alert_response' } } do |form|
+    .row
+      .col-6.offset-3
+        %turbo-frame#alert_response
+
     .row.mt-2
       .col-6.offset-3
         = form.input :email, placeholder: 'E-Mail'
