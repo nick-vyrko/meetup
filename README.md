@@ -56,6 +56,12 @@ Entity Relationship Diagram:
 
 ![ERD](https://github.com/nick-vyrko/meetup/assets/1536587/96e78d00-3b85-4ab3-a372-10ee896accd9)
 
+Events table has index on user_id column. This is required because we select user's organized events
+
+Tickets table has indexes on user_id and event_id columns. We request tickets by each of this column in different pages.
+
+Users table has index on email column. We search users by email on login
+
 ## Challenges
 
 ### Concurrency Handling:
