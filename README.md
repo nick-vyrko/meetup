@@ -84,3 +84,4 @@ This will improve the load speed of pages
 Also we will be able to easily archive/remove past events without any impact on the current/upcoming events 
 3. Add meetups where tickets have a designated place number. And use advisory locks (or similar mechanism) with a time window allowing user to finish payment
 4. Attach a map to set latitude and longitude to events
+5. Add test coverage
