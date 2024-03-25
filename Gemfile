@@ -27,6 +27,7 @@ gem 'connection_pool', '~> 2.4', '>= 2.4.1'
 
 group :development, :test do
   gem 'dotenv-rails', '~> 3.1'
+  gem 'pry-rails', '~> 0.3.9'
 end
 
 group :development do
@@ -42,5 +43,6 @@ end
 group :test do
   gem 'rspec-rails', '~> 6.1', '>= 6.1.2'
   gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
+  gem 'database_cleaner-active_record'
 end
 

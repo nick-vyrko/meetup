@@ -28,6 +28,8 @@ class BookEventTickets
   end
 
   def update_counter(value)
+    return if value.zero?
+
     IncreaseBookedTicketsCounterJob.perform_async(event.id, value)
   end
 end
