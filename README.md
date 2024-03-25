@@ -78,7 +78,9 @@ that pushes the same number of elements to the redis list
 
 ## Next Steps
 
-1. We can use ETag caching for `attended_events_controller`, `organized_events_controller.rb` controllers' pages. 
+1. We can add ETag caching for `attended_events_controller`, `organized_events_controller.rb` controllers' pages. 
 This will improve the load speed of pages
 2. Use database partitioning and split events by year and month. With this approach we can easily reduce events collections that are loaded on `events#index` page.
 Also we will be able to easily archive/remove past events without any impact on the current/upcoming events 
+3. Add meetups where tickets have a designated place number. And use advisory locks (or similar mechanism) with a time window allowing user to finish payment
+4. Attach a map to set latitude and longitude to events
