@@ -48,7 +48,7 @@ Asynchronous processing is done via [sidekiq](https://github.com/sidekiq/sidekiq
 
 Tickets for the newly created event are created in `CreateTicketsJob`
 Booked tickets counter is increased in `IncreaseBookedTicketsCounterJob`
-When an event passed we destroy unbooked tickets in `CleanUpUnusedTicketsJob`
+When an event has passed we destroy unbooked tickets in `CleanUpUnusedTicketsJob`
 
 ## Database
 
@@ -75,3 +75,10 @@ This does not impact user experience and we have time to asynchronously generate
 It allows us to insert new elements in O(1) time complexity. And to get the size of the list also in O(1) time.
 Therefore when we successfully booked a certain amount of tickets we call `IncreaseBookedTicketsCounterJob` 
 that pushes the same number of elements to the redis list
+
+## Next Steps
+
+1. We can use ETag caching for `attended_events_controller`, `organized_events_controller.rb` controllers' pages. 
+This will improve the load speed of pages
+2. Use database partitioning and split events by year and month. With this approach we can easily reduce events collections that are loaded on `events#index` page.
+Also we will be able to easily archive/remove past events without any impact on the current/upcoming events 
