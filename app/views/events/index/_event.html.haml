@@ -7,5 +7,5 @@
       %h4.text-secondary= event.datetime.strftime("%a, %B %d %T")
   .row
     .col-6.offset-3
-      %h4.text-secondary= event.total_tickets
+      %h4.text-secondary= "#{tickets_left}/#{event.total_tickets}"
   %hr.text-secondary.my-3

@@ -5,10 +5,13 @@ class EventsController < ApplicationController
     @events = Rails.cache.fetch("upcoming_events", expires_in: 5.minutes) do
       Event.upcoming.to_a
     end
+
+    @tickets_left = @events.each_with_object({}) { |event, obj| obj[event.id] = tickets_left(event) }
   end
 
   def show
     @event = Event.find(params[:id])
+    @tickets_left = tickets_left(@event)
   end
 
   def new
@@ -27,6 +30,10 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def tickets_left(event)
+    event.total_tickets - BookedTicketsCounter.new(event).count
+  end
 
   def event_params
     params.require(:event).permit(:name, :description, :datetime, :latitude, :longitude, :total_tickets)

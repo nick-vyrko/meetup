@@ -4,5 +4,6 @@
     Events
 
   - @events.each do |event|
-    - cache event do
-      = render partial: 'events/index/event', locals: { event: event }
+    - tickets_left = @tickets_left[event.id]
+    - cache [event, tickets_left]  do
+      = render partial: 'events/index/event', locals: { event: event, tickets_left: tickets_left }

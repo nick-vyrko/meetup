@@ -8,6 +8,16 @@ class BookEventTickets
   end
 
   def call
+    book_tickets.tap do |booked_tickets_number|
+      update_counter(booked_tickets_number)
+    end
+  end
+
+  private
+
+  attr_reader :user, :event, :tickets_count
+
+  def book_tickets
     ActiveRecord::Base.transaction do
       available_tickets = Ticket.where(event_id: event.id, user_id: nil).limit(tickets_count).lock.load
 
@@ -17,7 +27,7 @@ class BookEventTickets
     end
   end
 
-  private
-
-  attr_reader :user, :event, :tickets_count
+  def update_counter(value)
+    IncreaseBookedTicketsCounterJob.perform_async(event.id, value)
+  end
 end

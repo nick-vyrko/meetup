@@ -12,6 +12,9 @@
   .row.mt-2
     .col-6.offset-3
       %h4.text-secondary= @event.description
+  .row
+    .col-4.offset-4
+      %h4= "#{@tickets_left}/#{@event.total_tickets}"
 
   .row
     .col-12.offset-3
