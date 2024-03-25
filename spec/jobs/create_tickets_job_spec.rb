@@ -9,7 +9,8 @@ RSpec.describe CreateTicketsJob do
   let(:tickets_amount) { 3 }
 
   it 'creates multiple tickets in a single query' do
-    expect(Ticket).to receive(:insert_all).with([{ event_id: event_id }, { event_id: event_id }, { event_id: event_id }])
+    expect(Ticket).to receive(:insert_all).with([{ event_id: event_id }, { event_id: event_id },
+                                                 { event_id: event_id }])
 
     subject
   end

@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :event do
     user
-    sequence(:name) { |n| "event_#{n}"}
+    sequence(:name) { |n| "event_#{n}" }
     description { 'description text' }
     datetime { Time.current }
     latitude { 1 }

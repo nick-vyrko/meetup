@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe BookedTicketsCounter do
   subject { described_class.new(event) }
+
   let(:redis) { instance_double('Redis') }
   let(:event) { build_stubbed(:event) }
   let(:list_key) { "#{event.id}/booked_tickets" }

@@ -6,5 +6,5 @@ class Event < ApplicationRecord
 
   validates :name, :total_tickets, :datetime, :latitude, :longitude, presence: true
 
-  scope :upcoming, -> { where(datetime: Time.current.. ) }
+  scope :upcoming, -> { where(datetime: Time.current..) }
 end

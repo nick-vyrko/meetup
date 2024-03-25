@@ -46,5 +46,4 @@ RSpec.describe BookEventTickets do
       expect { subject }.not_to change(IncreaseBookedTicketsCounterJob.jobs, :size)
     end
   end
-
 end

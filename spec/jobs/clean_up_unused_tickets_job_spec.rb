@@ -7,7 +7,7 @@ RSpec.describe CleanUpUnusedTicketsJob do
 
   let(:event) { create(:event, :past, :with_tickets, total_tickets: 3) }
   let(:user) { create(:user) }
-  let(:used_ticket) { create(:ticket, event: event, user:user) }
+  let(:used_ticket) { create(:ticket, event: event, user: user) }
 
   before do
     used_ticket
