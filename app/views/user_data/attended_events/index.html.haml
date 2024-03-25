@@ -1,0 +1,13 @@
+.container.mt-5
+  %h1.text-secondary.text-center.mb-5
+    %span.text-primary Meetups you're attending
+
+  - @events.each do |event|
+    %a.text-decoration-none{href: user_attended_event_path(event)}
+      .row
+        .col-4
+          %h3= event.name
+        .col-4
+          %h4.text-secondary= event.datetime.strftime("%a, %B %d %T")
+        .col-4
+          %h4.text-secondary= event.tickets_count

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     resources :bookings, only: :create
   end
 
+  namespace :user, module: 'user_data' do
+    resources :organized_events, only: :index
+    resources :attended_events, only: %i[index show]
+  end
 
   get 'sign-up' => 'users#new'
   post 'sign-up' => 'users#create'

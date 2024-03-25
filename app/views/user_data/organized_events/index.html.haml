@@ -1,0 +1,13 @@
+.container.mt-5
+  %h1.text-secondary.text-center.mb-5
+    %span.text-primary Meetups you organize!
+
+  - @events.each do |event|
+    %a.text-decoration-none{href: event_path(event)}
+      .row
+        .col-6.offset-3
+          %h3= event.name
+      .row
+        .col-6.offset-3
+          %h4.text-secondary= event.datetime.strftime("%a, %B %d %T")
+      %hr.text-secondary.my-3
